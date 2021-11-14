@@ -87,10 +87,10 @@ https://x-colors.herokuapp.com/api/random/green?number=10&type=light
 https://x-colors.herokuapp.com/api/random/123?type=dark&number=2
 ```
 ```sh
-https://x-colors.herokuapp.com/api/hsl2hex/hsl(200,20,10)
+https://x-colors.herokuapp.com/api/hsl2hex/?value=hsl(200,20,10)
 ```
 ```sh
-https://x-colors.herokuapp.com/api/hex2rgb/e2A4bF
+https://x-colors.herokuapp.com/api/hex2rgb/?value=e2A4bF
 ```
 
 ## :zap: Available Scripts
