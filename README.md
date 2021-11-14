@@ -3,7 +3,7 @@
 A free API for generate &amp; convert colors.
 
 ## :eyeglasses: Overview
-xColor is a completely free service that provides the ability to obtain random colors and convert them into various color models (HEX, RGB and HSL are supported). All data comes in a convenient JSON format, so you can immediately use them for styling in CSS without additional validation.
+xColor is a completely free service that provides the ability to get random colors and convert them into various color models (HEX, RGB and HSL are supported). All data comes in a convenient JSON format, so you can immediately use them for styling in CSS without additional validation.
 
 ## :page_facing_up: API Documentation
 
