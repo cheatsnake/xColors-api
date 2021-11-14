@@ -10,6 +10,7 @@ class ColorController {
             return res.json(color);
         } catch (error) {
             console.log(error);
+            return res.status(500).json('Internal error');
         }
     }
     randomShade(req: Request, res: Response) {
@@ -21,7 +22,7 @@ class ColorController {
             return res.json(color);
         } catch (error) {
             console.log(error);
-            
+            return res.status(500).json('Internal error');
         }
     }
 }

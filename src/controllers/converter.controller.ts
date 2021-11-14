@@ -12,6 +12,7 @@ class ConverterController {
                 : res.status(400).json({error: 'Incorrect request'});
         } catch (error) {
             console.log(error);
+            return res.status(500).json('Internal error');
         }
     }
 
@@ -25,6 +26,7 @@ class ConverterController {
                 : res.status(400).json({error: 'Incorrect request'});
         } catch (error) {
             console.log(error);
+            return res.status(500).json('Internal error');
         }
     }
 
@@ -37,6 +39,7 @@ class ConverterController {
                 : res.status(400).json({error: 'Incorrect request'});
         } catch (error) {
             console.log(error);
+            return res.status(500).json('Internal error');
         }
     }
 
@@ -49,6 +52,7 @@ class ConverterController {
                 : res.status(400).json({error: 'Incorrect request'});
         } catch (error) {
             console.log(error);
+            return res.status(500).json('Internal error');
         }
     }
 
@@ -61,6 +65,7 @@ class ConverterController {
                 : res.status(400).json({error: 'Incorrect request'});
         } catch (error) {
             console.log(error);
+            return res.status(500).json('Internal error');
         }
     }
 
@@ -74,6 +79,7 @@ class ConverterController {
                 : res.status(400).json({error: 'Incorrect request'});
         } catch (error) {
             console.log(error);
+            return res.status(500).json('Internal error');
         }
     }
 
