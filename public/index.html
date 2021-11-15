@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xColors API</title>
+    <link rel="shortcut icon" href="assets/icon.png" />
+    <link rel="stylesheet" href="styles/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">&#11088; &#11088; &#11088;</h1>
+            <h1 class="header__title">xColors API</h1>
+            <h2 class="header__subtitle">A free API for generating and converting colors</h2>
+            <a href="https://github.com/cheatsnake/xColors-api" target="blank" class="btn">View on GitHub</a>
+        </div>
+    </header>
+
+    <section class="body">
+        <div class="container">
+            <h2 class="body__title">Overview</h2>
+            <p class="body__text">xColors is a completely free service that provides the ability to get random colors and convert them into various color models (HEX, RGB and HSL are supported). All data comes in a convenient JSON format, so you can immediately use them for styling in CSS without additional validation.</p>
+
+            <h2 class="body__title">Generating colors</h2>
+            <h3 class="body__subtitle">&#127922; Get random color</h3>
+            <p class="body__text">Get a JSON object that contains a random color in three HEX, RGB and HSL color models at once.</p>
+            <div class="link">https://x-colors.herokuapp.com/api/random</div>
+            <div class="link"><pre>
+{
+        <b>hex:</b> <i>"#BCB230"</i>,
+        <b>rgb:</b> <i>"rgb(188, 178, 48)"</i>,
+        <b>hsl:</b> <i>"hsl(56, 74%, 74%)"</i>
+}</pre></div>
+            <h3 class="body__subtitle">&#127912; Get random color with a given hue</h3>
+            <p class="body__text">You can get random shades of the color you need. For example, using reserved names such as:
+            <br>
+            <div class="color_names"><i><span>red</span> <span>pink</span> <span>puprle</span> <span>navy</span> <span>blue</span> <span>aqua</span> <span>green</span> <span>lime</span> <span>yellow</span> <span>orange</span></i></div>
+            </p>
+            <div class="link">https://x-colors.herokuapp.com/api/random/blue</div>
+            <p class="body__text">Instead of reserved words, you can use any number from the range [0, 359] - which corresponds to the <a href="https://en.wikipedia.org/wiki/Hue" target="_blank">HUE scale</a>.</p>
+            <div class="link">https://x-colors.herokuapp.com/api/random/228</div>
+            <h3 class="body__subtitle">&#128295; Parameters</h3>
+            <p class="body__text">The <i>number</i> parameter allows you to get an array containing the desired number of random colors.</p>
+            <div class="link">?number=3</div>
+            <p class="body__text">The <i>type</i> parameter allows you to get either only a dark or light shade of color. This allows you to know in advance what font color to use against the background of the resulting color. Usually, the font color is white on dark colors, and black on light colors.</p>
+            <p class="body__note">It works if you have specified the { <b>hue </b>/<b> color </b> } you need or use <b>all</b> - for an any color.</p>
+            <div class="link">/random/{hue/color/all}?type=dark</div>
+            <div class="link">/random/{hue/color/all}?type=light</div>
+
+            <h2 class="body__title">Converting сolors</h2>
+            <p class="body__text">You can freely convert colors between three color models. To do this, use the desired endpoint and use the value parameter to specify the color value of the color model, depending on the selected endpoint.</p>
+            <h3 class="body__subtitle">Convert HEX to RGB</h3>
+            <div class="link">https://x-colors.herokuapp.com/api/hex2rgb?value=FFFFFF</div>
+            <h3 class="body__subtitle">Convert HEX to HSL</h3>
+            <div class="link">https://x-colors.herokuapp.com/api/hex2hsl?value=FFFFFF</div>
+            <h3 class="body__subtitle">Convert RGB to HEX</h3>
+            <div class="link">https://x-colors.herokuapp.com/api/rgb2hex?value=120-200-30</div>
+            <h3 class="body__subtitle">Convert RGB to HSL</h3>
+            <div class="link">https://x-colors.herokuapp.com/api/rgb2hsl?value=120-200-30</div>
+            <h3 class="body__subtitle">Convert HSL to HEX</h3>
+            <div class="link">https://x-colors.herokuapp.com/api/hsl2hex?value=300-90-50</div>
+            <h3 class="body__subtitle">Convert HSL to RGB</h3>
+            <div class="link">https://x-colors.herokuapp.com/api/hsl2rgb?value=300-90-50</div>
+
+
+            <h2 class="body__title">Examples</h2>
+            <div class="link">https://x-colors.herokuapp.com/api/random?number=10</div>
+            <div class="link">https://x-colors.herokuapp.com/api/random/green?number=10&type=light</div>
+            <div class="link">https://x-colors.herokuapp.com/api/random/123?type=dark&number=2</div>
+            <div class="link">https://x-colors.herokuapp.com/api/hsl2hex/?value=hsl(200,20,10)</div>
+            <div class="link">https://x-colors.herokuapp.com/api/hex2rgb/?value=e2A4bF</div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Don't forget to put an star in our repository on GitHub.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
