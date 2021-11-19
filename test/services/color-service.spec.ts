@@ -1,4 +1,4 @@
-import ColorService from 'services/color.service';
+import ColorService from '../../src/services/color.service';
 import { assert, expect } from "chai";
 
 describe('Checking color service', function() {
