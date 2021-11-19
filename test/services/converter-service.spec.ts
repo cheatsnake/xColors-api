@@ -1,4 +1,4 @@
-import ConverterService from 'services/converter.service';
+import ConverterService from '../../src/services/converter.service';
 import { assert, expect } from "chai";
 
 describe('Checking converter service', function() {
