@@ -1,4 +1,4 @@
-![Website](https://img.shields.io/website?up_color=orange&up_message=xColors%20API&url=https%3A%2F%2Fx-colors.herokuapp.com)
+[![Website](https://img.shields.io/website?down_color=orange&down_message=xColors%20API&up_color=orange&up_message=xColors%20API&url=https%3A%2F%2Fx-colors.herokuapp.com%2F)](https://x-colors.herokuapp.com/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/cheatsnake/xColors-api?color=a349f7)
 ![GitHub](https://img.shields.io/github/license/cheatsnake/xColors-api?color=%235DAF83)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/cheatsnake/xColors-api/issues)
