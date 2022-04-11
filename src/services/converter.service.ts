@@ -1,5 +1,9 @@
 import { TColor } from "../types/color.types";
-import { hexColorValidation, hslColorValidation, rgbColorValidation } from "./validation.service";
+import {
+    hexColorValidation,
+    hslColorValidation,
+    rgbColorValidation,
+} from "./validation.service";
 
 class ConverterService {
     convertHexToRgb(hex: TColor): TColor {
@@ -7,77 +11,94 @@ class ConverterService {
         if (!h) return null;
 
         const rgb: number[] = [];
-    
-        for(let i = 0; i < 6; i += 2) {
+
+        for (let i = 0; i < 6; i += 2) {
             const elem = h.slice(i, i + 2);
             rgb.push(parseInt(elem, 16));
         }
-    
-        return `rgb(${rgb.join(', ')})`;
+
+        return `rgb(${rgb.join(", ")})`;
     }
-    
+
     convertRgbToHsl(rgb: TColor): TColor {
         const rgbArr = rgbColorValidation(rgb);
-        
-        if(!rgbArr || rgbArr.length < 3) return null; 
 
-        const r = +rgbArr[0] / 255,
-              g = +rgbArr[1] / 255,
-              b = +rgbArr[2] / 255;
-        const minLig = Math.min(r, g, b),
-              maxLig = Math.max(r, g, b),
-              delta = maxLig - minLig,
-              HSL = {hue: 0, sat: 0, lig: maxLig};
-        let del_R, del_G, del_B;
-    
-        if( delta !== 0 ) {
-            HSL.sat = delta / maxLig;
-            del_R = (((maxLig - r) / 6) + (delta / 2)) / delta;
-            del_G = (((maxLig - g) / 6) + (delta / 2)) / delta;
-            del_B = (((maxLig - b) / 6) + (delta / 2)) / delta;
-    
-            if (r === maxLig) HSL.hue = del_B - del_G;
-                else if (g === maxLig) HSL.hue = (1 / 3) + del_R - del_B;
-                else if (b === maxLig) HSL.hue = (2 / 3) + del_G - del_R;
-    
-            if (HSL.hue < 0) HSL.hue += 1;
-            if (HSL.hue > 1) HSL.hue -= 1;
+        if (!rgbArr || rgbArr.length < 3) return null;
+
+        const r = +rgbArr[0] / 255;
+        const g = +rgbArr[1] / 255;
+        const b = +rgbArr[2] / 255;
+        const maxColor = Math.max(r, g, b);
+        const minColor = Math.min(r, g, b);
+
+        let L = (maxColor + minColor) / 2;
+        let S = 0;
+        let H = 0;
+
+        if (maxColor != minColor) {
+            if (L < 0.5) {
+                S = (maxColor - minColor) / (maxColor + minColor);
+            } else {
+                S = (maxColor - minColor) / (2.0 - maxColor - minColor);
+            }
+
+            if (r == maxColor) {
+                H = (g - b) / (maxColor - minColor);
+            } else if (g == maxColor) {
+                H = 2.0 + (b - r) / (maxColor - minColor);
+            } else {
+                H = 4.0 + (r - g) / (maxColor - minColor);
+            }
         }
-    
-        HSL.hue = Math.round(HSL.hue * 360);
-        HSL.sat = Math.round(HSL.sat * 100);
-        HSL.lig = Math.round(HSL.lig * 100);
-    
-        return `hsl(${HSL.hue}, ${HSL.sat}%, ${HSL.lig}%)`;
+
+        L = Math.round(L * 100);
+        S = Math.round(S * 100);
+        H = Math.round(H * 60);
+
+        if (H < 0) H += 360;
+
+        return `hsl(${H}, ${S}%, ${L}%)`;
     }
-    
+
     convertHslToRgb(hsl: TColor): TColor {
         const hslArr = hslColorValidation(hsl);
-        if(!hslArr || hslArr.length < 3) return null; 
-        
+        if (!hslArr || hslArr.length < 3) return null;
+
         let h = +hslArr[0];
         let s = +hslArr[1];
         let l = +hslArr[2];
 
         s /= 100;
         l /= 100;
-        const k = (n: number) => (n + h / 60) % 6;
-        const f = (n: number) => l * (1 - s * Math.max(0, Math.min(k(n), 4 - k(n), 1)));
-        return `rgb(${Math.round(255 * f(5))}, ${Math.round(255 * f(3))}, ${Math.round(255 * f(1))})`;
+
+        const a = s * Math.min(l, 1 - l);
+        const convert = (n: number, k = (n + h / 30) % 12) => {
+            return l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+        };
+        const r = Math.round(convert(0) * 255);
+        const g = Math.round(convert(8) * 255);
+        const b = Math.round(convert(4) * 255);
+
+        return `rgb(${r}, ${g}, ${b})`;
     }
 
     convertRgbToHex(rgb: TColor): TColor {
         const rgbArr = rgbColorValidation(rgb);
-        
-        if(!rgbArr || rgbArr.length < 3) return null; 
+
+        if (!rgbArr || rgbArr.length < 3) return null;
 
         const r = +rgbArr[0],
-              g = +rgbArr[1],
-              b = +rgbArr[2];
-        
-        return '#' + ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0').toUpperCase();
-    }
+            g = +rgbArr[1],
+            b = +rgbArr[2];
 
+        return (
+            "#" +
+            ((r << 16) + (g << 8) + b)
+                .toString(16)
+                .padStart(6, "0")
+                .toUpperCase()
+        );
+    }
 }
 
 export default new ConverterService();
