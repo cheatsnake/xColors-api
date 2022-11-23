@@ -125,3 +125,17 @@ npm run build
 npm start
 ```
 > Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
+
+## :whale: Docker startup
+
+1. Build docker image from Dockerfile:
+
+```
+docker build . -t xcolors
+```
+
+2. Create docker container from new image:
+
+```
+docker run -p 5000:5000 -d --name xcolors-server xcolors
+```
