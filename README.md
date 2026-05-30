@@ -1,11 +1,12 @@
-[![Website](https://img.shields.io/website?down_color=orange&down_message=xColors%20API&up_color=orange&up_message=xColors%20API&url=https%3A%2F%2Fx-colors.yurace.pro%2F)](https://x-colors.yurace.pro/)
-![GitHub repo size](https://img.shields.io/github/repo-size/cheatsnake/xColors-api?color=a349f7)
-![GitHub](https://img.shields.io/github/license/cheatsnake/xColors-api?color=%235DAF83)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/cheatsnake/xColors-api/issues)
+## 🦖 This repository is not maintained and exists only for history
 
 # :rainbow: xColors API
 
-A free API for generate &amp; convert colors.
+A simple API for generating &amp; converting colors.
+
+![GitHub repo size](https://img.shields.io/github/repo-size/cheatsnake/xColors-api?color=a349f7)
+![GitHub](https://img.shields.io/github/license/cheatsnake/xColors-api?color=%235DAF83)
+[![archived](https://img.shields.io/badge/status-archived-orange.svg?style=flat)](https://github.com/cheatsnake/xColors-api)
 
 ## :eyeglasses: Overview
 
@@ -18,7 +19,7 @@ xColors is a completely free service that provides the ability to get random col
 Get a JSON object that contains a random color in three HEX, RGB and HSL color models at once.
 
 ```sh
-https://x-colors.yurace.pro/api/random
+http://localhost:5000/api/random
 ```
 
 ```sh
@@ -37,13 +38,13 @@ You can get random shades of the color you need. For example, using reserved nam
 <br>
 
 ```sh
-https://x-colors.yurace.pro/api/random/blue
+http://localhost:5000/api/random/blue
 ```
 
 Instead of reserved words, you can use any number from the range [0, 359] - which corresponds to the [HUE scale](https://en.wikipedia.org/wiki/Hue).
 
 ```sh
-https://x-colors.yurace.pro/api/random/228
+http://localhost:5000/api/random/228
 ```
 
 ### :wrench: Parameters
@@ -73,59 +74,59 @@ You can freely convert colors between three color models. To do this, use the de
 Convert HEX to RGB
 
 ```sh
-https://x-colors.yurace.pro/api/hex2rgb?value=FFFFFF
+http://localhost:5000/api/hex2rgb?value=FFFFFF
 ```
 
 Convert HEX to HSL
 
 ```sh
-https://x-colors.yurace.pro/api/hex2hsl?value=FFFFFF
+http://localhost:5000/api/hex2hsl?value=FFFFFF
 ```
 
 Convert RGB to HEX
 
 ```sh
-https://x-colors.yurace.pro/api/rgb2hex?value=120-200-30
+http://localhost:5000/api/rgb2hex?value=120-200-30
 ```
 
 Convert RGB to HSL
 
 ```sh
-https://x-colors.yurace.pro/api/rgb2hsl?value=120-200-30
+http://localhost:5000/api/rgb2hsl?value=120-200-30
 ```
 
 Convert HSL to HEX
 
 ```sh
-https://x-colors.yurace.pro/api/hsl2hex?value=300-90-50
+http://localhost:5000/api/hsl2hex?value=300-90-50
 ```
 
 Convert HSL to RGB
 
 ```sh
-https://x-colors.yurace.pro/api/hsl2rgb?value=300-90-50
+http://localhost:5000/api/hsl2rgb?value=300-90-50
 ```
 
 ## :dart: Examples
 
 ```sh
-https://x-colors.yurace.pro/api/random?number=10
+http://localhost:5000/api/random?number=10
 ```
 
 ```sh
-https://x-colors.yurace.pro/api/random/green?number=10&type=light
+http://localhost:5000/api/random/green?number=10&type=light
 ```
 
 ```sh
-https://x-colors.yurace.pro/api/random/123?type=dark&number=2
+http://localhost:5000/api/random/123?type=dark&number=2
 ```
 
 ```sh
-https://x-colors.yurace.pro/api/hsl2hex/?value=hsl(200,20,10)
+http://localhost:5000/api/hsl2hex/?value=hsl(200,20,10)
 ```
 
 ```sh
-https://x-colors.yurace.pro/api/hex2rgb/?value=e2A4bF
+http://localhost:5000/api/hex2rgb/?value=e2A4bF
 ```
 
 ## :zap: Available Scripts
